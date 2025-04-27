@@ -32,7 +32,7 @@ test('get started link', async ({ page }) => {
 
     try {
 
-      // Wait for the brand to be available inside each product
+      // Wait for the brand to be available inside each product..
       const brand = await product.locator('span.a-size-base-plus.a-color-base').innerText({ timeout: 10000 });
 
       // Wait for the title to be available inside each product

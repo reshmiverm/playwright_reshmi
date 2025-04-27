@@ -52,7 +52,7 @@ test('get started link', async ({ page }) => {
     }
   }
 
-  // Print all collected results together
+  // Print all collected results together...
   console.log('The list of first 3 Products:', results);
 
   await page.waitForTimeout(3000);

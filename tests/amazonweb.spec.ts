@@ -26,7 +26,7 @@ test('get started link', async ({ page }) => {
   const products = page.locator('[data-component-type="s-search-result"]');
   const results: { brand: string; title: string; price: string }[] = [];
 
-  //loop that will run 3 times to fetch first 3 products..
+  //loop that will run 3 times to fetch first 3 products...
   for (let i = 0; i < 3; i++) {
     const product = products.nth(i);
 

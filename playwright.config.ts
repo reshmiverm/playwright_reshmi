@@ -12,7 +12,7 @@ import { defineConfig, devices } from '@playwright/test';
  * See https://playwright.dev/docs/test-configuration.
  */
 export default defineConfig({
-  testDir: './tests',
+  // Removed duplicate 'projects' property here. All projects are now defined in the single 'projects' array below.
   /* Run tests in files in parallel */
   fullyParallel: true,
   /* Fail the build on CI if you accidentally left test.only in the source code. */
@@ -34,23 +34,32 @@ export default defineConfig({
   },
 
   /* Configure projects for major browsers */
+  
+   /// {
+    //  name: 'firefox',
+  /* Configure projects for all test suites and major browsers */
   projects: [
+    {
+      name: 'specs-tests',
+      testDir: './specs',
+    },
+    {
+      name: 'general-tests',
+      testDir: './tests',
+    },
     {
       name: 'chromium',
       use: { ...devices['Desktop Chrome'] },
     }
-
-   /// {
-    //  name: 'firefox',
-  //    use: { ...devices['Desktop Firefox'] },
-   // },
-
-    //{
-    //  name: 'webkit',
-    //  use: { ...devices['Desktop Safari'] },
-   // },
-
-    /* Test against mobile viewports. */
+    // Uncomment the following to enable more browsers or devices
+    // {
+    //   name: 'firefox',
+    //   use: { ...devices['Desktop Firefox'] },
+    // },
+    // {
+    //   name: 'webkit',
+    //   use: { ...devices['Desktop Safari'] },
+    // },
     // {
     //   name: 'Mobile Chrome',
     //   use: { ...devices['Pixel 5'] },
@@ -59,8 +68,6 @@ export default defineConfig({
     //   name: 'Mobile Safari',
     //   use: { ...devices['iPhone 12'] },
     // },
-
-    /* Test against branded browsers. */
     // {
     //   name: 'Microsoft Edge',
     //   use: { ...devices['Desktop Edge'], channel: 'msedge' },
